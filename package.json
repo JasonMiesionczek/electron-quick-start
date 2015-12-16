@@ -23,6 +23,18 @@
   },
   "homepage": "https://github.com/atom/electron-quick-start#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.35.0"
+    "electron-prebuilt": "^0.35.0",
+    "jspm": "^0.16.18",
+    "materialize-css": "^0.97.3"
+  },
+  "jspm": {
+    "dependencies": {
+      "materialize": "npm:materialize@^1.0.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }
