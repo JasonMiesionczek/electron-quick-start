@@ -40,6 +40,8 @@ export class Flower8 extends BaseFlower {
 		var canvas = document.getElementById('theCanvas');
 		var context = canvas.getContext('2d');
 		
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		
 		let centerX = canvas.width / 2;
 		let centerY = canvas.height / 2;
 		let xb = 20;
@@ -52,12 +54,10 @@ export class Flower8 extends BaseFlower {
 		var offsetX = (centerX - (triangleWidth / 2)) - xb;
 		var offsetY = (centerY - (triangleHeight / 2)) - ya;
 		
+		context.setTransform(1, 0, 0, 1, 0, 0);
+		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.translate(offsetX, offsetY);
 		
-		//xa = xa + (centerX - xa);
-		//xc = xc + (xc + xa);
-		
-		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
 		context.moveTo(xb, yb);
 		context.lineTo(xc, yc);
