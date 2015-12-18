@@ -29,6 +29,8 @@
   },
   "jspm": {
     "dependencies": {
+      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1",
+      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.0.5",
       "jquery": "github:components/jquery@^2.1.4",
       "materialize": "npm:materialize@^1.0.0"
     },

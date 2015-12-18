@@ -1,8 +1,8 @@
 import {BaseFlower} from "./flower";
 
-export class Flower2 extends BaseFlower {
+export class Flower6 extends BaseFlower {
 	constructor() {
-		super('LAM. ANGLES REL. RATIOS');
+		super('LAM. ANG & FREQ REL. 256');
 		this.headers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 		this.data = [];
 		this.row = 0;
@@ -17,8 +17,10 @@ export class Flower2 extends BaseFlower {
 			this.data[this.row] = [denom];
 			for (var numer = 1; numer <= 15; numer++) {
 				let ratio = numer / denom;
-				let angle = Math.atan(ratio) * 180 / this.pi;
-				this.data[this.row].push(parseFloat(angle).toFixed(1));
+				let angle = parseFloat(Math.atan(ratio) * 180 / this.pi).toFixed(1);
+				let freq = Math.round(256 * ratio);
+				let angleFreq = `${angle}<br/>${freq}`;
+				this.data[this.row].push(angleFreq);
 			}
 			this.row++;
 		}
