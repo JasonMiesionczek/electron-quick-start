@@ -1,8 +1,8 @@
-import {BaseFlower} from "./flower";
+import {BaseFlower} from "../flower";
 
 export class Flower4 extends BaseFlower {
 	constructor() {
-		super('FREQ REL ANGLES FOR FREQ.S');
+		super();
 		this.headers = ['256', '282', '308', '334', '360', '386', '412', '438', '464', '490', '516'];
 		this.data = [];
 		this.row = 0;

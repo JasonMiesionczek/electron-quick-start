@@ -1,0 +1,12 @@
+<template>
+    <div id="menuContainer" class="container-fluid">
+        <div class="row">
+        <div class="col-xs-2 ${route.nav ? '':'hidden'}" repeat.for="route of lambRoutes" model.bind="route">
+            <h5>${route.title}</h5>
+        </div>
+        <div class="col-xs-2" repeat.for="route of waveRoutes">
+            <h5>${route.title}</h5>
+        </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,27 @@
+<template>
+<div class="row">
+    <div class="col-xs-8">
+        <h3>${router.currentInstruction.config.title}</h3>        
+    </div>
+    <div class="col-xs-4 text-right" style="padding-top: 10px">
+        <button class="btn" click.trigger="goHome()"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</button>
+    </div>
+</div>
+<content select="grid-top"></content>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>${hlabel}</th>
+            <th repeat.for="header of headers">${header}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>${vlabel}</td>
+            <td colspan="15" align="center">${caption}</td>
+        </tr>
+        <tr repeat.for="row of data">
+            <td repeat.for="cell of row" innerHTML.bind="cell"></td>
+        </tr>
+    </tbody>
+</table>    
+</template>

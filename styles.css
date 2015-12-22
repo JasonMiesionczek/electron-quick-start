@@ -12,8 +12,12 @@ body {
   font-weight: bold;
 }
 
-.container {
+.container, .container-fluid {
   background-color: #fff;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+}
+
+#menuContainer {
+    margin: 0 20px;
 }

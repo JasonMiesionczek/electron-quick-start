@@ -1,0 +1,30 @@
+<template>
+	<div class="container z-depth-2">
+		<h3>${title}</h3>
+		
+		<div class="row">
+			<div class="col-md-9">
+				<canvas id="theCanvas" width="800" height="600" style="border: 1px solid #ddd; margin: 5px"></canvas>
+			</div>
+			<div class="col-md-3">
+				<form submit.trigger="submit()" class="">
+					<div class="form-group">
+						<label for="angleApex">Length in Feet (L)</label>
+						<input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="angleApex" placeholder="0" value.bind="length">
+					</div>
+					<div class="form-group">
+						<label for="baseAngle">Width in feet (W)</label>
+						<input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="baseAngle" placeholder="0" value.bind="width">
+					</div>
+					<div class="form-group">
+						<label for="testFreq">Test Frequency (F)</label>
+						<input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="testFreq" placeholder="0" value.bind="testFreq">
+					</div>
+					<button type="submit" class="btn btn-sm btn-primary">Generate</button>
+				</form>
+				<h5>WL = ${waveLength}</h5>
+			</div>
+		</div>
+	</div>
+	
+</template>

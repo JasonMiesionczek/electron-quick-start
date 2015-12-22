@@ -1,8 +1,8 @@
-import {BaseFlower} from "./flower";
+import {BaseFlower} from "../flower";
 
 export class Flower1 extends BaseFlower {
 	constructor() {
-		super('FREQ. REL. ANGLES & LEN.');
+        super();
 		this.constant = 1130;
 		this.data = [];
 		this.row = 0;
@@ -12,7 +12,7 @@ export class Flower1 extends BaseFlower {
 	activate() {
 		this.generate();
 	}
-	
+    
 	generate() {
 		for (var length = 0.5; length <= 10; length += 0.5) {
 			this.data[this.row] = [length];

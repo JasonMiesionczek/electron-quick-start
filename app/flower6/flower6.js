@@ -1,8 +1,8 @@
-import {BaseFlower} from "./flower";
+import {BaseFlower} from "../flower";
 
 export class Flower6 extends BaseFlower {
 	constructor() {
-		super('LAM. ANG & FREQ REL. 256');
+		super();
 		this.headers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 		this.data = [];
 		this.row = 0;

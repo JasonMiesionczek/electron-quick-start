@@ -1,18 +1,13 @@
-import {BaseFlower} from "./flower";
+import {BaseFlower} from "../flower";
 
-export class Flower8 extends BaseFlower {
+export class Flower9 extends BaseFlower {
 	constructor() {
-		super('WAVES COR. TRIANGLE 1 FREQ');
-		this.angleApex = 90;
-		this.baseAngle = 45;
-		this.baseLine = 10;
-		this.testFreq = 400;
+		super('WAVES COR. RECT. 1 FREQ.');
+		this.length = 90;
+		this.width = 45;
+		this.testFreq = 50;
 		this.rpd = 1.745329E-02;
-		this.xb = 20;
-		this.yb = 180;
-		this.yc = 180;
-		this.ar = 0;
-		this.c = 0;
+		
 		this.waveLength = 0;
 	}
 	
@@ -20,23 +15,14 @@ export class Flower8 extends BaseFlower {
 	}
 	
 	submit() {
-		let ar = this.angleApex * this.rpd;
-		let br = this.baseAngle * this.rpd;
-		this.c = 180 - (this.angleApex + this.baseAngle);
-		let cr = this.c * this.rpd;
-		let ratio = 280 / this.baseLine;
+        let ratio = 300 / this.length;
 		this.waveLength = 1130 / this.testFreq;
-		
-		let e = this.baseLine * Math.cos(br);
-		let d = this.baseLine * Math.sin(br);
-		let f = d / Math.tan(ar);
-		let ab = e + f;
-		let h = ab * Math.sin(br) * ratio;
-		let ya = 180 - h;
-		let w = ab * Math.cos(br) * ratio;
-		let xa = 20 + w;
-		let xc = this.baseLine * ratio + 20;
-		
+        let e = this.width * ratio;
+        let ya = 190 - e;
+        let yd = ya;
+        let xc = this.length * ratio + 10
+        let xd = xc;
+        
 		var canvas = document.getElementById('theCanvas');
 		var context = canvas.getContext('2d');
 		
@@ -44,9 +30,13 @@ export class Flower8 extends BaseFlower {
 		
 		let centerX = canvas.width / 2;
 		let centerY = canvas.height / 2;
-		let xb = 20;
-		let yb = 180;
-		let yc = 180;
+		// let xb = 20;
+		// let yb = 180;
+		// let yc = 180;
+        let xa = 10;
+        let xb = 10;
+        let yb = 190;
+        let yc = 190;
 		
 		var triangleWidth = xc - xb;
 		var triangleHeight = yb - ya;
@@ -61,11 +51,13 @@ export class Flower8 extends BaseFlower {
 		context.beginPath();
 		context.moveTo(xb, yb);
 		context.lineTo(xc, yc);
+        context.lineTo(xd, yd);
 		context.lineTo(xa, ya);
 		context.lineTo(xb, yb);
+        context.strokeStyle = '#F00';
 		context.stroke();
 		
-		for (var r = (this.waveLength * ratio); r <= (1.5 * this.baseLine * ratio); r += (this.waveLength * ratio)) {
+		for (var r = (this.waveLength * ratio); r <= (1.5 * this.length * ratio); r += (this.waveLength * ratio)) {
 			context.beginPath();
 			context.arc(xa, ya, r, 0, 2 * Math.PI, false);
 			context.lineWidth = 2;
@@ -80,6 +72,12 @@ export class Flower8 extends BaseFlower {
 			
 			context.beginPath();
 			context.arc(xc, yc, r, 0, 2 * Math.PI, false);
+			context.lineWidth = 2;
+			context.strokeStyle = '#888';
+			context.stroke();
+            
+            context.beginPath();
+			context.arc(xd, yd, r, 0, 2 * Math.PI, false);
 			context.lineWidth = 2;
 			context.strokeStyle = '#888';
 			context.stroke();

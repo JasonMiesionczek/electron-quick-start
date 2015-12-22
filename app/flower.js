@@ -1,6 +1,5 @@
 export class BaseFlower {
-	constructor(title) {
-		this._title = title;
+	constructor() {
 		this._pi = 3.141593;
 		this._headers = [];
 	}
@@ -15,9 +14,5 @@ export class BaseFlower {
 	
 	get pi() {
 		return this._pi;
-	}
-	
-	get title() {
-		return this._title;
 	}
 }
