@@ -1,0 +1,24 @@
+<template>
+    <div class="row">
+        <div class="col-xs-8">
+            <h3>${router.currentInstruction.config.title}</h3>        
+        </div>
+        <div class="col-xs-4 text-right" style="padding-top: 10px">
+            <button class="btn" click.trigger="goHome()"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <canvas id="theCanvas" width="800" height="600" style="border: 1px solid #ddd; margin: 5px"></canvas>
+        </div>
+        <div class="col-md-3">
+            <form submit.trigger="submit()" class="">
+                <content select="form-elements"></content>
+                
+                <button type="submit" class="btn btn-sm btn-primary">Generate</button>
+            </form>
+            <content select="other-values"></content>
+            
+        </div>
+    </div>
+</template>

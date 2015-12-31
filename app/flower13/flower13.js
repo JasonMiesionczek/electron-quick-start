@@ -1,6 +1,6 @@
 import {BaseFlower} from "../flower";
 
-export class Flower9 extends BaseFlower {
+export class Flower13 extends BaseFlower {
 	constructor() {
 		super();
 		this.length = 90;
@@ -42,16 +42,25 @@ export class Flower9 extends BaseFlower {
 		
 		this.resetContext();
         this.setOffset(offsetX, offsetY);
+        
+        let xmab = 10;
+        let ymab = (ya + yb) / 2;
+        let xmbc = (xb + xc) / 2;
+        let ymbc = 190;
+        let xmcd = xc;
+        let ymcd = ymab;
+        let xmda = xmbc;
+        let ymda = ya;
 		
 		this.drawLines(xb, yb, [[xc,yc],[xd,yd],[xa,ya],[xb,yb]]);
 		
 		for (var r = (this.waveLength * ratio); 
             r <= (1.5 * this.length * ratio); 
             r += (this.waveLength * ratio)) {
-			this.drawCircleWithVertex(xa, ya, r);
-			this.drawCircleWithVertex(xb, yb, r);
-			this.drawCircleWithVertex(xc, yc, r);
-            this.drawCircleWithVertex(xd, yd, r);
+			this.drawCircleWithVertex(xmab, ymab, r);
+			this.drawCircleWithVertex(xmbc, ymbc, r);
+			this.drawCircleWithVertex(xmcd, ymcd, r);
+            this.drawCircleWithVertex(xmda, ymda, r);
 		}
 	}
 }

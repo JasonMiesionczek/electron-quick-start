@@ -1,6 +1,6 @@
 import {BaseFlower} from "../flower";
 
-export class Flower8 extends BaseFlower {
+export class Flower12 extends BaseFlower {
 	constructor() {
 		super();
 		this.angleApex = 90;
@@ -36,7 +36,7 @@ export class Flower8 extends BaseFlower {
 		let w = ab * Math.cos(br) * ratio;
 		let xa = 20 + w;
 		let xc = this.baseLine * ratio + 20;
-		
+        
 		this.initContext();
         this.resetContext();
 		
@@ -45,6 +45,13 @@ export class Flower8 extends BaseFlower {
 		let xb = 20;
 		let yb = 180;
 		let yc = 180;
+        
+        let xmab = (xa + xb) / 2;
+        let ymab = (ya + yb) / 2;
+        let xmbc = (xb + xc) / 2;
+        let ymbc = (yb + yc) / 2;
+        let xmca = (xc + xa) / 2;
+        let ymca = (yc + ya) / 2;
 		
 		var triangleWidth = xc - xb;
 		var triangleHeight = yb - ya;
@@ -60,11 +67,11 @@ export class Flower8 extends BaseFlower {
 		for (var r = (this.waveLength * ratio); 
             r <= (1.5 * this.baseLine * ratio); 
             r += (this.waveLength * ratio)) {
-			this.drawCircleWithVertex(xa, ya, r);
+			this.drawCircleWithVertex(xmab, ymab, r);
 
-            this.drawCircleWithVertex(xb, yb, r);
+            this.drawCircleWithVertex(xmbc, ymbc, r);
 
-            this.drawCircleWithVertex(xc, yc, r);
+            this.drawCircleWithVertex(xmca, ymca, r);
 		}
 	}
 }

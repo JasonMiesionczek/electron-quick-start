@@ -1,6 +1,6 @@
 import {BaseFlower} from "../flower";
 
-export class Flower10 extends BaseFlower {
+export class Flower11 extends BaseFlower {
 	constructor() {
 		super();
 		this.numSides = 6;
@@ -42,19 +42,27 @@ export class Flower10 extends BaseFlower {
 		var offsetX = (centerX - (triangleWidth / 2));
 		var offsetY = (centerY - (triangleHeight / 2)) - startY/2;
 		
-        this.resetContext();
+		this.resetContext();
         this.setOffset(offsetX, offsetY);
         
         // compute vertex locations
-        let xy = [];
-        for (let v = 0; v < this.numSides; v++) {
+        let xy = [[startX, startY]];
+        for (let v = 1; v <= this.numSides; v++) {
             let val1 = 90 * Math.cos(ar * v) + 160;
             let val2 = 100 - 90 * Math.sin(ar * v);
             xy.push([val1, val2]);
         }
+        
+        // compute mid side locations
+        let xyz = [];
+        for (let m = 1; m <= this.numSides; m++) {
+            let mval1 = (xy[m][0] + xy[m-1][0]) / 2;
+            let mval2 = (xy[m][1] + xy[m-1][1]) / 2;
+            xyz.push([mval1, mval2]);
+        }
 		
         let points = [];
-        for (let p = 0; p < this.numSides; p++) {
+        for (let p = 1; p <= this.numSides; p++) {
             points.push([xy[p][0], xy[p][1]]);
         }
         points.push([startX, startY]);
@@ -64,7 +72,7 @@ export class Flower10 extends BaseFlower {
             r <= ((this.numSides / 2) * this.sideLength * scale); 
             r += (this.waveLength * scale)) {
 			for (var j = 0; j < this.numSides; j++) {
-                this.drawCircleWithVertex(xy[j][0], xy[j][1], r);
+                this.drawCircleWithVertex(xyz[j][0], xyz[j][1], r);
             }
 		}
 	}
