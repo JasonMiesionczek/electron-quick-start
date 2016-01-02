@@ -5,13 +5,18 @@ export class BaseFlower {
         this._lineWidth = 3;
         this._vertexSize = 1;
         this._circleColor = '#555';
-        this._context;
-        this._canvas;
+        this._context = null;
+        this._canvas = null;
+        this._width = 0;
+        this._height = 0;
 	}
     
     initContext() {
         this._canvas = document.getElementById('theCanvas');
         this._context = this._canvas.getContext('2d');
+        this._width = this._canvas.width;
+        this._height = this._canvas.height;
+        this._context.font = 'bold 18pt Calibri';
     }
     
     resetContext() {
@@ -21,6 +26,10 @@ export class BaseFlower {
     
     setOffset(x, y) {
         this._context.translate(x, y);
+    }
+
+    drawText(text, x, y) {
+        this._context.fillText(text, x, y);
     }
     
     drawLines(initX, initY, points) {
@@ -59,6 +68,14 @@ export class BaseFlower {
     
     get canvas() {
         return this._canvas;
+    }
+
+    get canvasWidth() {
+        return this._width;
+    }
+
+    get canvasHeight() {
+        return this._height;
     }
 	
 	get headers() {

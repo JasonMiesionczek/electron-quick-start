@@ -11,11 +11,31 @@ export class Flower19 extends BaseFlower {
         this.waveLength = 0;
     }
 
-    activate() {
+    setInitialContent() {
+        this.initContext();
+        this.resetContext();
+
+        this.centerX = this.canvasWidth / 2;
+        this.centerY = this.canvasHeight / 2;
+
+        this.offsetX = (this.centerX - (300 / 2));
+        this.offsetY = (this.centerY - (140 / 2)) - (140/2);
+
+        this.setOffset(this.offsetX, this.offsetY);
+
+        this.drawLines(10,170, [[310,170],[310,30],[10,30],[10,170]]);
+        this.drawText('A', 10, 20);
+        this.drawText('B', 300, 20);
+        this.drawText('C', 300, 195);
+        this.drawText('D', 10, 195);
     }
 
     submit() {
         let ratio = 300 / this.length;
+        if (this.width > this.length * 100 / 200) {
+            ratio = ratio * 100 / 200;
+        }
+
         this.waveLength = 1130 / this.testFreq;
         let e = this.width * ratio;
         let esq = e * e;
@@ -23,14 +43,8 @@ export class Flower19 extends BaseFlower {
         let fsq = f * f;
         let ya = 190 - e;
         let yd = ya;
-        let xc = this.length * ratio + 10
+        let xc = this.length * ratio + 10;
         let xd = xc;
-
-        this.initContext();
-        this.resetContext();
-
-        let centerX = this.canvas.width / 2;
-        let centerY = this.canvas.height / 2;
 
         let xa = 10;
         let xb = 10;
@@ -40,11 +54,11 @@ export class Flower19 extends BaseFlower {
         var triangleWidth = xc - xb;
         var triangleHeight = yb - ya;
 
-        var offsetX = (centerX - (triangleWidth / 2)) - xb;
-        var offsetY = (centerY - (triangleHeight / 2)) - ya;
+        this.offsetX = (this.centerX - (triangleWidth / 2)) - xb;
+        this.offsetY = (this.centerY - (triangleHeight / 2)) - ya;
 
         this.resetContext();
-        this.setOffset(offsetX, offsetY);
+        this.setOffset(this.offsetX, this.offsetY);
 
         this.drawLines(xb, yb, [[xc,yc],[xd,yd],[xa,ya],[xb,yb]]);
 

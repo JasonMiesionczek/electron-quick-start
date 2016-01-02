@@ -6,18 +6,16 @@ export class Flower20 extends BaseFlower {
         this.rpd = 1.745329E-02;
     }
 
-    activate() {
+    setInitialContent() {
+        this.submit();
     }
 
     submit() {
-        let xs = 160;
-        let ys = 100;
-
         this.initContext();
         this.resetContext();
 
-        let centerX = this.canvas.width / 2;
-        let centerY = this.canvas.height / 2;
+        let centerX = this.canvasWidth / 2;
+        let centerY = this.canvasHeight / 2;
 
         this.drawCircle(centerX, centerY, 5);
 

@@ -2,13 +2,24 @@ import {Router} from 'aurelia-router';
 import {customElement, bindable, inject} from 'aurelia-framework';
 
 @customElement('wave-canvas')
-@inject(Router)
+@inject(Element, Router)
+@bindable({name:'hasGenerate', defaultValue:true})
 export class WaveCanvas {
-    constructor(router) {
+    constructor(element, router) {
         this.router = router;
+        this.element = element;
+
     }
     
     goHome() {
         this.router.navigate('welcome');
+    }
+
+    attached() {
+        let initialEvent = new CustomEvent('init', {
+            bubbles: true
+        });
+        this.element.dispatchEvent(initialEvent);
+
     }
 }

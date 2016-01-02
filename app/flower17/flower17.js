@@ -22,8 +22,24 @@ export class Flower17 extends BaseFlower {
         this.wlc = 0;
 	}
 	
-	activate() {
-	}
+	setInitialContent() {
+        this.initContext();
+        this.resetContext();
+
+        this.centerX = this.canvasWidth / 2;
+        this.centerY = this.canvasHeight / 2;
+
+        this.offsetX = (this.centerX - (300 / 2));
+        this.offsetY = (this.centerY - (140 / 2)) - (140/2);
+
+        this.setOffset(this.offsetX, this.offsetY);
+
+        this.drawLines(10,170, [[310,170],[160,35],[10,170]]);
+        this.drawText('Apex', 9*14, 19);
+        this.drawText('Base', 10, 22*9);
+        this.drawText('C', 25*12, 22*9);
+        this.drawText('Base Line', 10*12, 17*9);
+    }
 	
 	submit() {
 		let ar = this.angleApex * this.rpd;
@@ -46,11 +62,6 @@ export class Flower17 extends BaseFlower {
 		let xa = 20 + w;
 		let xc = this.baseLine * ratio + 20;
 		
-		this.initContext();
-        this.resetContext();
-		
-		let centerX = this.canvas.width / 2;
-		let centerY = this.canvas.height / 2;
 		let xb = 20;
 		let yb = 180;
 		let yc = 180;
@@ -65,8 +76,8 @@ export class Flower17 extends BaseFlower {
 		var triangleWidth = xc - xb;
 		var triangleHeight = yb - ya;
 		
-		var offsetX = (centerX - (triangleWidth / 2)) - xb;
-		var offsetY = (centerY - (triangleHeight / 2)) - ya;
+		var offsetX = (this.centerX - (triangleWidth / 2)) - xb;
+		var offsetY = (this.centerY - (triangleHeight / 2)) - ya;
 		
 		this.resetContext();
 		this.setOffset(offsetX, offsetY);

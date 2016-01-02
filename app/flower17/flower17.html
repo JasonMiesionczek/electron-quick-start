@@ -1,7 +1,7 @@
 <template>
 	<div class="container z-depth-2">
         <require from="../components/wave-canvas"></require>
-        <wave-canvas>
+        <wave-canvas init.delegate="setInitialContent($event)">
             <form-elements>
                 <div class="form-group">
                     <label for="angleApex">Largest Angle as Apex (A)</label>
@@ -17,15 +17,15 @@
                 </div>
                 <div class="form-group">
                     <label for="testFreq">Apex Frequency (FA)</label>
-                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="testFreq" placeholder="0" value.bind="apexFreq">
+                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="apexFreq" placeholder="0" value.bind="apexFreq">
                 </div>
                 <div class="form-group">
                     <label for="testFreq">Base Frequency (FB)</label>
-                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="testFreq" placeholder="0" value.bind="baseFreq">
+                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="baseFreq" placeholder="0" value.bind="baseFreq">
                 </div>
                 <div class="form-group">
                     <label for="testFreq">Vertex Frequency (FC)</label>
-                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="testFreq" placeholder="0" value.bind="vertexFreq">
+                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="vertexFreq" placeholder="0" value.bind="vertexFreq">
                 </div>
             </form-elements>
             <other-values>
@@ -35,8 +35,5 @@
                 <h5>WLC = ${wlc}</h5>
             </other-values>
         </wave-canvas>
-        
-		
 	</div>
-	
 </template>
