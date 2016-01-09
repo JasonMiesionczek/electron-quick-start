@@ -1,7 +1,7 @@
 <template>
 	<div class="container z-depth-2">
         <require from="../components/wave-canvas"></require>
-        <wave-canvas>
+        <wave-canvas init.delegate="setInitialContent($event)">
             <form-elements>
                 <div class="form-group">
                     <label for="angleApex">Largest Angle as Apex (A)</label>

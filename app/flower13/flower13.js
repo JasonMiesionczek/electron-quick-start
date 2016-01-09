@@ -10,8 +10,24 @@ export class Flower13 extends BaseFlower {
 		
 		this.waveLength = 0;
 	}
-	
-	activate() {
+
+	setInitialContent() {
+		this.initContext();
+		this.resetContext();
+
+		this.centerX = this.canvasWidth / 2;
+		this.centerY = this.canvasHeight / 2;
+
+		this.offsetX = (this.centerX - (300 / 2));
+		this.offsetY = (this.centerY - (140 / 2)) - (140/2);
+
+		this.setOffset(this.offsetX, this.offsetY);
+
+		this.drawLines(10,170, [[310,170],[310,30],[10,30],[10,170]]);
+		this.drawText('A', 10, 20);
+		this.drawText('B', 300, 20);
+		this.drawText('C', 300, 195);
+		this.drawText('D', 10, 195);
 	}
 	
 	submit() {
@@ -23,11 +39,8 @@ export class Flower13 extends BaseFlower {
         let xc = this.length * ratio + 10
         let xd = xc;
         
-		this.initContext();
-        this.resetContext();
-		
-		let centerX = this.canvas.width / 2;
-		let centerY = this.canvas.height / 2;
+		let centerX = this.canvasWidth / 2;
+		let centerY = this.canvasHeight / 2;
 		
         let xa = 10;
         let xb = 10;

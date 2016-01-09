@@ -18,11 +18,25 @@
             </div>    
         </div>
         <div class="row">
-        <div class="col-xs-2 text-center ${route.nav ? '':'hidden'}" repeat.for="route of waveRoutes">
+        <div class="col-md-2 text-center ${route.nav ? '':'hidden'}" repeat.for="route of waveRoutes.group1">
             <a href="#/${route.route}">
             <img src="${route.image}" style="margin-top: 8px"/>
             <h5>${route.title}</h5></a>
         </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-center ${route.nav ? '':'hidden'}" repeat.for="route of waveRoutes.group2">
+                <a href="#/${route.route}">
+                    <img src="${route.image}" style="margin-top: 8px"/>
+                    <h5>${route.title}</h5></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-center ${route.nav ? '':'hidden'}" repeat.for="route of waveRoutes.group3">
+                <a href="#/${route.route}">
+                    <img src="${route.image}" style="margin-top: 8px"/>
+                    <h5>${route.title}</h5></a>
+            </div>
         </div>
     </div>
 </template>

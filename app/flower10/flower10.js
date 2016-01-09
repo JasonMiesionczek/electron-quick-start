@@ -11,8 +11,20 @@ export class Flower10 extends BaseFlower {
 		this.waveLength = 0;
 	}
 	
-	activate() {
-	}
+	setInitialContent() {
+        this.initContext();
+        this.resetContext();
+
+        this.centerX = this.canvasWidth / 2;
+        this.centerY = this.canvasHeight / 2;
+
+        this.offsetX = (this.centerX - (300 / 2));
+        this.offsetY = (this.centerY - (140 / 2)) - (140/2);
+
+        this.setOffset(this.offsetX, this.offsetY);
+
+        this.drawLines(160,10, [[230,45],[247,120],[199,181],[121,181],[73,120],[90,45],[160,10]]);
+    }
 	
 	submit() {
         if (this.numSides < 3) {

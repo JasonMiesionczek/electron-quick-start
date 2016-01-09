@@ -2,7 +2,7 @@ import {lambRoutes, waveRoutes} from './app/routes';
 
 export class App {
 	configureRouter(config, router) {
-		config.title = 'Flower';
+		config.title = 'The Gilchrist Frequency Program';
 		config.map(lambRoutes);
         
         this.waveRouter = router.createChild();
@@ -13,9 +13,15 @@ export class App {
         //     cfg.map(kidRoutes);
         //     this.kidRouter.refreshNavigation();    
         // });
-        waveRoutes.forEach(route => {
+        waveRoutes.group1.forEach(route => {
             this.waveRouter.addRoute(route);
-        })
+        });
+        waveRoutes.group2.forEach(route => {
+            this.waveRouter.addRoute(route);
+        });
+        waveRoutes.group3.forEach(route => {
+            this.waveRouter.addRoute(route);
+        });
         //this.kidRouter.addRoute({route: 'flower11', moduleId: './app/flower10/flower10', nav: true, title: 'test'});
         this.waveRouter.refreshNavigation();
         

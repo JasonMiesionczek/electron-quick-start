@@ -19,18 +19,32 @@ export var lambRoutes = [
     { route: 'flower18', name: 'flower18', moduleId: './app/flower18/flower18', nav: false, title: '18. Waves intersecting when generated a one corner of rectangle, reflect off wall twice'},
     { route: 'flower19', name: 'flower19', moduleId: './app/flower19/flower19', nav: false, title: '19. Waves intersecting when generated at the corners of rectangle, reflect off wall twice'},
     { route: 'flower20', name: 'flower20', moduleId: './app/flower20/flower20', nav: false, title: '20. Moon orbits around earth orbiting around the sun'},
-], waveRoutes = [
-    { route: 'flower8', image: 'flower8.png', name: 'flower8', moduleId: './app/flower8/flower8', nav: true, title: '8. Waves intersecting at corners of triangle for given frequency'},
-    { route: 'flower9', image: 'flower9.png', name: 'flower9', moduleId: './app/flower9/flower9', nav: true, title: '9. Waves intersecting at corners of rectangle for given frequency'},
-    { route: 'flower10', image: 'flower10.png', name: 'flower10', moduleId: './app/flower10/flower10', nav: true, title: '10. Waves intersecting at corners of n-sided polygon for given frequency'},
-    { route: 'flower11', image: 'flower11.png', name: 'flower11', moduleId: './app/flower11/flower11', nav: true, title: '11. Waves intersecting at mid-side of n-sided polygon for given frequency'},
-    { route: 'flower12', image: 'flower12.png', name: 'flower12', moduleId: './app/flower12/flower12', nav: true, title: '12. Waves intersecting at mid-side of triangle for given frequency'},
-    { route: 'flower13', image: 'flower13.png', name: 'flower13', moduleId: './app/flower13/flower13', nav: true, title: '13. Waves intersecting at mid-side of rectangle for given frequency'},
-    { route: 'flower14', image: 'flower14.png', name: 'flower14', moduleId: './app/flower14/flower14', nav: true, title: '14. Waves intersecting at corners of triangle for three given frequencies'},
-    { route: 'flower15', image: 'flower15.png', name: 'flower15', moduleId: './app/flower15/flower15', nav: true, title: '15. Waves intersecting at corners of rectangle for four given frequencies'},
-    { route: 'flower16', image: 'flower16.png', name: 'flower16', moduleId: './app/flower16/flower16', nav: true, title: '16. Waves intersecting at mid-side of rectangle for four given frequencies'},
-    { route: 'flower17', image: 'flower17.png', name: 'flower17', moduleId: './app/flower17/flower17', nav: true, title: '17. Waves intersecting at mid-side of triangle for three given frequencies'},
-    { route: 'flower18', image: 'flower18.png', name: 'flower18', moduleId: './app/flower18/flower18', nav: true, title: '18. Waves intersecting when generated a one corner of rectangle, reflect off wall twice'},
-    { route: 'flower19', image: 'flower19.png', name: 'flower19', moduleId: './app/flower19/flower19', nav: true, title: '19. Waves intersecting when generated at the corners of rectangle, reflect off wall twice'},
-    { route: 'flower20', image: 'flower20.png', name: 'flower20', moduleId: './app/flower20/flower20', nav: true, title: '20. Moon orbits around earth orbiting around the sun'},
-];
+    { route: 'flower21', name: 'flower21', moduleId: './app/flower21/flower21', nav: false, title: '21. Waves intersecting when generated at the corners of rectangle, reflect off wall once'},
+    { route: 'flower22', name: 'flower22', moduleId: './app/flower22/flower22', nav: false, title: '22. Waves intersecting when generated at one point in a rectangle, reflect off wall once'},
+    { route: 'flower23', name: 'flower23', moduleId: './app/flower23/flower23', nav: false, title: '23. Waves intersecting when generated at mid-side of rectangle, reflect off wall once'},
+    { route: 'flower24', name: 'flower24', moduleId: './app/flower24/flower24', nav: false, title: '24. Generates stereo pairs representing 3D lissajou patterns'},
+], waveRoutes =
+    { group1: [
+        { route: 'flower8', image: 'flower8.png', name: 'flower8', moduleId: './app/flower8/flower8', nav: true, title: '8. Waves intersecting at corners of triangle for given frequency'},
+        { route: 'flower9', image: 'flower9.png', name: 'flower9', moduleId: './app/flower9/flower9', nav: true, title: '9. Waves intersecting at corners of rectangle for given frequency'},
+        { route: 'flower10', image: 'flower10.png', name: 'flower10', moduleId: './app/flower10/flower10', nav: true, title: '10. Waves intersecting at corners of n-sided polygon for given frequency'},
+        { route: 'flower11', image: 'flower11.png', name: 'flower11', moduleId: './app/flower11/flower11', nav: true, title: '11. Waves intersecting at mid-side of n-sided polygon for given frequency'},
+        { route: 'flower12', image: 'flower12.png', name: 'flower12', moduleId: './app/flower12/flower12', nav: true, title: '12. Waves intersecting at mid-side of triangle for given frequency'},
+        { route: 'flower13', image: 'flower13.png', name: 'flower13', moduleId: './app/flower13/flower13', nav: true, title: '13. Waves intersecting at mid-side of rectangle for given frequency'}
+    ],
+    group2: [
+        { route: 'flower14', image: 'flower14.png', name: 'flower14', moduleId: './app/flower14/flower14', nav: true, title: '14. Waves intersecting at corners of triangle for three given frequencies'},
+        { route: 'flower15', image: 'flower15.png', name: 'flower15', moduleId: './app/flower15/flower15', nav: true, title: '15. Waves intersecting at corners of rectangle for four given frequencies'},
+        { route: 'flower16', image: 'flower16.png', name: 'flower16', moduleId: './app/flower16/flower16', nav: true, title: '16. Waves intersecting at mid-side of rectangle for four given frequencies'},
+        { route: 'flower17', image: 'flower17.png', name: 'flower17', moduleId: './app/flower17/flower17', nav: true, title: '17. Waves intersecting at mid-side of triangle for three given frequencies'},
+        { route: 'flower18', image: 'flower18.png', name: 'flower18', moduleId: './app/flower18/flower18', nav: true, title: '18. Waves intersecting when generated a one corner of rectangle, reflect off wall twice'},
+        { route: 'flower19', image: 'flower19.png', name: 'flower19', moduleId: './app/flower19/flower19', nav: true, title: '19. Waves intersecting when generated at the corners of rectangle, reflect off wall twice'},
+    ],
+    group3: [
+        { route: 'flower20', image: 'flower20.png', name: 'flower20', moduleId: './app/flower20/flower20', nav: true, title: '20. Moon orbits around earth orbiting around the sun'},
+        { route: 'flower21', image: 'flower21.png', name: 'flower21', moduleId: './app/flower21/flower21', nav: true, title: '21. Waves intersecting when generated at the corners of rectangle, reflect off wall once'},
+        { route: 'flower22', image: 'flower22.png', name: 'flower22', moduleId: './app/flower22/flower22', nav: true, title: '22. Waves intersecting when generated at one point in a rectangle, reflect off wall once'},
+        { route: 'flower23', image: 'flower23.png', name: 'flower23', moduleId: './app/flower23/flower23', nav: true, title: '23. Waves intersecting when generated at mid-side of rectangle, reflect off wall once'},
+        { route: 'flower24', image: 'flower24.png', name: 'flower24', moduleId: './app/flower24/flower24', nav: true, title: '24. Generates stereo pairs representing 3D lissajou patterns'},
+    ]}
+;
