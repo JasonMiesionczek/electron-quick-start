@@ -23,6 +23,9 @@ export var lambRoutes = [
     { route: 'flower22', name: 'flower22', moduleId: './app/flower22/flower22', nav: false, title: '22. Waves intersecting when generated at one point in a rectangle, reflect off wall once'},
     { route: 'flower23', name: 'flower23', moduleId: './app/flower23/flower23', nav: false, title: '23. Waves intersecting when generated at mid-side of rectangle, reflect off wall once'},
     { route: 'flower24', name: 'flower24', moduleId: './app/flower24/flower24', nav: false, title: '24. Generates stereo pairs representing 3D lissajou patterns'},
+    { route: 'flower25', name: 'flower25', moduleId: './app/flower25/flower25', nav: false, title: '25. Generates stereo pairs representing 3D globe'},
+    { route: 'flower27', name: 'flower27', moduleId: './app/flower27/flower27', nav: false, title: '27. Generates stereo pairs representing 3D wire sculpture cube'},
+    { route: 'flower28', name: 'flower28', moduleId: './app/flower28/flower28', nav: false, title: '28. Generates stereo pairs representing 3D wire sculpture cube with tetrahedron inside'},
 ], waveRoutes =
     { group1: [
         { route: 'flower8', image: 'flower8.png', name: 'flower8', moduleId: './app/flower8/flower8', nav: true, title: '8. Waves intersecting at corners of triangle for given frequency'},
@@ -46,5 +49,10 @@ export var lambRoutes = [
         { route: 'flower22', image: 'flower22.png', name: 'flower22', moduleId: './app/flower22/flower22', nav: true, title: '22. Waves intersecting when generated at one point in a rectangle, reflect off wall once'},
         { route: 'flower23', image: 'flower23.png', name: 'flower23', moduleId: './app/flower23/flower23', nav: true, title: '23. Waves intersecting when generated at mid-side of rectangle, reflect off wall once'},
         { route: 'flower24', image: 'flower24.png', name: 'flower24', moduleId: './app/flower24/flower24', nav: true, title: '24. Generates stereo pairs representing 3D lissajou patterns'},
+        { route: 'flower25', image: 'flower25.png', name: 'flower25', moduleId: './app/flower25/flower25', nav: true, title: '25. Generates stereo pairs representing 3D globe'},
+    ],
+    group4: [
+        { route: 'flower27', image: 'flower27.png', name: 'flower27', moduleId: './app/flower27/flower27', nav: true, title: '27. Generates stereo pairs representing 3D wire sculpture cube'},
+        { route: 'flower28', image: 'flower28.png', name: 'flower28', moduleId: './app/flower28/flower28', nav: true, title: '28. Generates stereo pairs representing 3D wire sculpture cube with tetrahedron inside'},
     ]}
 ;
