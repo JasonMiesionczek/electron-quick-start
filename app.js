@@ -1,4 +1,4 @@
-import {lambRoutes, waveRoutes} from './app/routes';
+import {lambRoutes, waveRoutes, stereoPairs} from './app/routes';
 
 export class App {
 	configureRouter(config, router) {
@@ -6,6 +6,7 @@ export class App {
 		config.map(lambRoutes);
         
         this.waveRouter = router.createChild();
+        this.stereoRouter = router.createChild();
 		this.router = router;
 		
         // this.kidRouter.configure(cfg => {
@@ -24,6 +25,11 @@ export class App {
         });
         //this.kidRouter.addRoute({route: 'flower11', moduleId: './app/flower10/flower10', nav: true, title: 'test'});
         this.waveRouter.refreshNavigation();
+
+        stereoPairs.group1.forEach(route => {
+            this.stereoRouter.addRoute(route);
+        });
+        this.stereoRouter.refreshNavigation();
         
 	}
     

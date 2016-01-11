@@ -45,5 +45,17 @@
                     <h5>${route.title}</h5></a>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 style="border-bottom: 1px solid #ddd">Stereo Pairs</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-center ${route.nav ? '':'hidden'}" repeat.for="route of stereoPairs.group1">
+                <a href="#/${route.route}">
+                    <img src="${route.image}" style="margin-top: 8px"/>
+                    <h5>${route.title}</h5></a>
+            </div>
+        </div>
     </div>
 </template>
