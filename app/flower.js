@@ -28,6 +28,11 @@ export class BaseFlower {
         this._context.translate(x, y);
     }
 
+    drawRect(x1, y1, x2, y2) {
+        this._context.fillStyle = '#fff';
+        this._context.fillRect(x1, y1, x2, y2);
+    }
+
     drawText(text, x, y) {
         this._context.fillText(text, x, y);
     }

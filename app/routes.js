@@ -28,6 +28,7 @@ export var lambRoutes = [
     { route: 'flower28', name: 'flower28', moduleId: './app/flower28/flower28', nav: false, title: '28. Generates stereo pairs representing 3D wire sculpture cube with tetrahedron inside'},
     { route: 'flower29', name: 'flower29', moduleId: './app/flower29/flower29', nav: false, title: '29. Generates stereo pairs representing 3D wire sculpture cube with octahedron inside'},
     { route: 'flower30', name: 'flower30', moduleId: './app/flower30/flower30', nav: false, title: '30. Generates stereo pairs representing 3D wire sculpture cube with dodecahedron outside'},
+    { route: 'flower31', name: 'flower31', moduleId: './app/flower31/flower31', nav: false, title: '31. Generates blinking stereo pairs, effect of moving 3D wire sculpture cube with dodecahedron outside'},
 ], waveRoutes =
     { group1: [
         { route: 'flower8', image: 'flower8.png', name: 'flower8', moduleId: './app/flower8/flower8', nav: true, title: '8. Waves intersecting at corners of triangle for given frequency'},
@@ -64,6 +65,9 @@ export var lambRoutes = [
         { route: 'flower28', image: 'flower28.png', name: 'flower28', moduleId: './app/flower28/flower28', nav: true, title: '28. Generates stereo pairs representing 3D wire sculpture cube with tetrahedron inside'},
         { route: 'flower29', image: 'flower29.png', name: 'flower29', moduleId: './app/flower29/flower29', nav: true, title: '29. Generates stereo pairs representing 3D wire sculpture cube with octahedron inside'},
         { route: 'flower30', image: 'flower30.png', name: 'flower30', moduleId: './app/flower30/flower30', nav: true, title: '30. Generates stereo pairs representing 3D wire sculpture cube with dodecahedron outside'},
+    ],
+    group2: [
+        { route: 'flower31', image: 'flower30.png', name: 'flower31', moduleId: './app/flower31/flower31', nav: true, title: '31. Generates blinking stereo pairs, effect of moving 3D wire sculpture cube with dodecahedron outside'},
     ]
 }
 ;
