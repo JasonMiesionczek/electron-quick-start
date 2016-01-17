@@ -44,9 +44,9 @@ export class Flower22 extends BaseFlower {
 
         this.waveLength = 1130 / this.testFreq;
         let wr = this.width * ratio;
-        let esq = wr * wr;
+        //let esq = wr * wr;
         let lr = this.length * ratio;
-        let fsq = lr * lr;
+        //let fsq = lr * lr;
         let ya = 190 - wr;
         let yd = ya;
         let xc = lr + 10;

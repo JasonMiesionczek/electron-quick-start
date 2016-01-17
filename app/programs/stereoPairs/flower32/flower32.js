@@ -200,14 +200,14 @@ export class Flower32 extends BaseFlower {
             //}
             //this.drawLines(ox2+410, oy1+90, [[x2+410, y1+90]]);
             let line1 = new SimpleLine({
-               left: ox1+230,
-                top: oy1+90,
-                endX: x1+230,
-                endY: y1+90
+               left: ox1 + 230 + leftOffset,
+                top: oy1 + 90,
+                endX: x1 + 230 + leftOffset,
+                endY: y1 + 90
             });
 
             let line2 = new SimpleLine({
-                left: ox2+410,
+                left: ox2 + 410,
                 top: oy1+90,
                 endX: x2+410,
                 endY: y1+90

@@ -36,7 +36,7 @@ export class Flower13 extends BaseFlower {
         let e = this.width * ratio;
         let ya = 190 - e;
         let yd = ya;
-        let xc = this.length * ratio + 10
+        let xc = this.length * ratio + 10;
         let xd = xc;
         
 		let centerX = this.canvasWidth / 2;

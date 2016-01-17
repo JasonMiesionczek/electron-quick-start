@@ -10,9 +10,12 @@
                 <h5>F = ${f}</h5>
                 <h5>ZO = ${zo}</h5>
                 <h5>D = ${d}</h5>
-                <span repeat.for="x of cx">CX(${$index}) = ${x};&nbsp;</span><br/><br/>
-                <span repeat.for="y of cy">CY(${$index}) = ${y};&nbsp;</span><br/><br/>
-                <span repeat.for="z of cz">CZ(${$index}) = ${z};&nbsp;</span><br/>
+                <a href="javascript:void(0)" class="moreLink">More...</a>
+                <div class="hiddenDetails hidden">
+                    <span repeat.for="x of cx">CX(${$index}) = ${x};&nbsp;</span><br/><br/>
+                    <span repeat.for="y of cy">CY(${$index}) = ${y};&nbsp;</span><br/><br/>
+                    <span repeat.for="z of cz">CZ(${$index}) = ${z};&nbsp;</span><br/>
+                </div>
             </other-values>
         </wave-canvas>
     </div>

@@ -14,7 +14,7 @@ export class Flower17 extends BaseFlower {
 		this.xb = 20;
 		this.yb = 180;
 		this.yc = 180;
-		this.ar = 0;
+		//this.ar = 0;
 		this.c = 0;
 		this.waveLength = 0;
         this.wla = 0;
@@ -45,7 +45,7 @@ export class Flower17 extends BaseFlower {
 		let ar = this.angleApex * this.rpd;
 		let br = this.baseAngle * this.rpd;
 		this.c = 180 - (this.angleApex + this.baseAngle);
-		let cr = this.c * this.rpd;
+		//let cr = this.c * this.rpd;
 		let ratio = 280 / this.baseLine;
 		this.waveLength = 1130 / this.testFreq;
         this.wla = 1130 / this.apexFreq;
