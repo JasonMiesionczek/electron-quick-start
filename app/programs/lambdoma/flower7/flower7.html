@@ -1,0 +1,21 @@
+<template>
+	<div class="container z-depth-2">
+        <require from="app/components/lambdoma-grid"></require>
+        <lambdoma-grid 
+            headers.bind="headers" 
+            data.bind="data"
+            hlabel="Numerator"
+            vlabel="Denominator"
+            caption="Angles (deg.) & frequencies (CPS) relative to given ratios; base=${baseFreq}">
+            <grid-top>
+                <form submit.trigger="submit()" class="form-inline">
+                    <div class="form-group">
+                        <label for="baseFreq">Base Frequency</label>
+                        <input type="text" class="form-control input-sm" id="baseFreq" placeholder="0" value.bind="baseFreq">
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-primary">Generate</button>
+                </form>
+            </grid-top>
+        </lambdoma-grid>
+	</div>
+</template>

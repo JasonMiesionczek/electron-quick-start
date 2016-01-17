@@ -1,5 +1,6 @@
 import {Router} from 'aurelia-router';
 import {customElement, bindable, inject} from 'aurelia-framework';
+import $ from 'jquery';
 
 @customElement('wave-canvas')
 @inject(Element, Router)
@@ -20,6 +21,8 @@ export class WaveCanvas {
             bubbles: true
         });
         this.element.dispatchEvent(initialEvent);
-
+        $(".moreLink").on('click', () => {
+            $(".hiddenDetails").toggleClass('hidden');
+        })
     }
 }

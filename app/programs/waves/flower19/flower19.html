@@ -1,0 +1,25 @@
+<template>
+    <div class="container z-depth-2">
+        <require from="app/components/wave-canvas"></require>
+        <wave-canvas init.delegate="setInitialContent($event)">
+            <form-elements>
+                <div class="form-group">
+                    <label for="angleApex">Length in Feet (L)</label>
+                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="angleApex" placeholder="0" value.bind="length">
+                </div>
+                <div class="form-group">
+                    <label for="baseAngle">Width in feet (W)</label>
+                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="baseAngle" placeholder="0" value.bind="width">
+                </div>
+                <div class="form-group">
+                    <label for="testFreq">Test Frequency (F)</label>
+                    <input type="number" class="form-control input-sm" style="width: 75px;margin-right: 25px" id="testFreq" placeholder="0" value.bind="testFreq">
+                </div>
+            </form-elements>
+            <other-values>
+                <h5>WL = ${waveLength}</h5>
+            </other-values>
+        </wave-canvas>
+    </div>
+
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <div class="container z-depth-2">
+        <require from="app/components/wave-canvas"></require>
+        <wave-canvas has-generate.bind="false" init.delegate="setInitialContent($event)">
+            <form-elements>
+            </form-elements>
+            <other-values>
+                <h5>R = ${r}</h5>
+                <h5>E = ${e}</h5>
+                <h5>F = ${f}</h5>
+                <h5>ZO = ${zo}</h5>
+                <h5>D = ${d}</h5>
+                <span repeat.for="x of cx">CX(${$index}) = ${x};&nbsp;</span><br/><br/>
+                <span repeat.for="y of cy">CY(${$index}) = ${y};&nbsp;</span><br/><br/>
+                <span repeat.for="z of cz">CZ(${$index}) = ${z};&nbsp;</span><br/>
+            </other-values>
+        </wave-canvas>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <div class="container z-depth-2">
+        <require from="app/components/wave-canvas"></require>
+        <wave-canvas has-generate.bind="false" init.delegate="setInitialContent($event)">
+            <form-elements>
+            </form-elements>
+            <other-values>
+            </other-values>
+        </wave-canvas>
+    </div>
+</template>

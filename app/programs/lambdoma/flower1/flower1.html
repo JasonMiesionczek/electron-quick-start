@@ -1,0 +1,12 @@
+<template>
+	<div class="container z-depth-2">
+        <require from="app/components/lambdoma-grid"></require>
+        <lambdoma-grid 
+            headers.bind="headers" 
+            data.bind="data"
+            hlabel="DEGREES"
+            vlabel="FEET"
+            caption="Frequency (CPS)">
+        </lambdoma-grid>
+	</div>
+</template>
