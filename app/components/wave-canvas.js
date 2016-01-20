@@ -5,6 +5,7 @@ import $ from 'jquery';
 @customElement('wave-canvas')
 @inject(Element, Router)
 @bindable({name:'hasGenerate', defaultValue:true})
+@bindable({name:'buttonName', defaultValue:'Generate'})
 export class WaveCanvas {
     constructor(element, router) {
         this.router = router;

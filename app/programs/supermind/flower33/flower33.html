@@ -1,0 +1,49 @@
+<template>
+    <require from="app/components/eval-stats"></require>
+    <div class="container z-depth-2">
+        <!-- Step 1 -->
+        <div show.bind="currentStep == 1" class="row evalStep">
+            <div class="col-md-12 wizard-body">
+                <div class="center-block">
+                    <br/><br/><br/>
+                    <h3 style="text-align:center">Enter the Subject's Number</h3>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-5">
+                            <input type="number" class="form-control" value.bind="sub"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button click.trigger="prev()" class="btn btn-default">Prev</button>
+                </div>
+                <div class="col-md-6">
+                    <button click.trigger="next()" class="btn btn-primary pull-right">Next</button>
+                </div>
+            </div>
+        </div>
+        <!-- Step 2 -->
+        <div show.bind="currentStep == 2" class="row evalStep">
+            <div class="col-md-12 wizard-body">
+                <div class="center-block">
+                    <eval-stats></eval-stats>
+                    <h3 style="text-align:center">Rate Subject as to Motivation</h3>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-5">
+                            <input type="number" class="form-control" value.bind="mot"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button click.trigger="prev()" class="btn btn-default">Prev</button>
+                </div>
+                <div class="col-md-6">
+                    <button click.trigger="next()" class="btn btn-primary pull-right">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

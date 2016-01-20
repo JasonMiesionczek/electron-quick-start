@@ -1,4 +1,4 @@
-import {BaseFlower} from "app/flower";
+import {BaseFlower} from "app/library/flower";
 
 export class Flower6 extends BaseFlower {
 	constructor() {

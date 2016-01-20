@@ -1,18 +1,17 @@
-import {BaseFlower} from "app/flower";
-import {Canvas, SimpleLine} from "app/library/canvas";
+import {BaseFlower} from "app/library/flower";
+import {Canvas, SimpleLine, ShapeGroup, Shape, Sequence, Sequencer} from "app/library/canvas";
 
 export class Flower32 extends BaseFlower {
     constructor() {
         super();
-        this.rpd = 1.745329E-02;
         let w = 10;
         let w2 = w / 2;
-        this.e = 1.25;
-        this.f = 40;
-        this.zo = 6;
+        this.dpi = 3.141593;
+        this.dpi8 = this.dpi / 8;
+        this.de = 1.25;
+        this.df = 40;
+        this.dzo = 6;
         this.d = 30;
-        this.delay = 25;
-        this.leftOffset = 0;
 
         this.cx = new Array(55);
         this.cx[16] = -0.809 * w;
@@ -164,86 +163,104 @@ export class Flower32 extends BaseFlower {
         this.cz[45] = 0.809 * w;
         this.cz[46] = 0.809 * w;
         this.cz[48] = 0.809 * w;
-
-
     }
 
     setInitialContent() {
-        this.cnvs = new Canvas(document.getElementById('theCanvas'));
-        this.drawShapes();
-        this.count = 0;
-        window.setTimeout(() => { this.coverLeft(); }, 1000);
-    }
-
-    drawShapes(leftOffset = 0) {
         this.initContext();
-        this.resetContext();
+        this.cnvs = new Canvas(this.canvas);
+        this.group = new ShapeGroup();
+        this.frames = [
+            new ShapeGroup(),
+            new ShapeGroup(),
+            new ShapeGroup(),
+            new ShapeGroup(),
+            new ShapeGroup(),
+            new ShapeGroup(),
+            new ShapeGroup(),
+            new ShapeGroup()
+        ];
 
-        let ox1 = 0;
-        let ox2 = 0;
-        let oy1 = 0;
+        this.generateShapes();
+        this.currentFrame = 0;
+        this.submit();
+    }
 
-        for (let i = 0; i <= 55; i++) {
-            let x = this.cx[i] || 0;
-            let y = this.cy[i] || 0;
-            let z = this.cz[i] || 0;
-            let x1 = ((x - (this.e * z / this.d)) * this.zo / (this.d + z)) * this.f;
-            let x2 = ((x + (this.e * z / this.d)) * this.zo / (this.d + z)) * this.f;
-            let y1 = (y * this.zo / (z + this.d)) / 2 * this.f;
-            if (i == 0) {
-                ox1 = x1;
-                ox2 = x2;
-                oy1 = y1;
-            }
-            //if (leftOffset < 180) {
-            //    this.drawLines(ox1+230+leftOffset, oy1+90, [[x1+230+leftOffset, y1+90]]);
-            //}
-            //this.drawLines(ox2+410, oy1+90, [[x2+410, y1+90]]);
-            let line1 = new SimpleLine({
-               left: ox1 + 230 + leftOffset,
-                top: oy1 + 90,
-                endX: x1 + 230 + leftOffset,
-                endY: y1 + 90
-            });
-
-            let line2 = new SimpleLine({
-                left: ox2 + 410,
-                top: oy1+90,
-                endX: x2+410,
-                endY: y1+90
-            });
-
-            this.cnvs.add(line1);
-            this.cnvs.add(line2);
-            ox1 = x1;
-            ox2 = x2;
-            oy1 = y1;
-        }
-
+    submit() {
+        this.currentFrame = 0;
+        this.cnvs.removeAll();
+        this.cnvs.add(this.frames[this.currentFrame]);
         this.cnvs.render();
+        window.setTimeout(() => {
+            this.switchFrame();
+        }, 300);
     }
 
-    redrawShapes() {
-        this.drawShapes();
-        window.setTimeout(() => { this.coverLeft(); }, this.delay);
-    }
-
-    moveLeft() {
-        if (this.leftOffset <= 180) {
-            this.leftOffset += 5;
-            this.drawRect(150+this.leftOffset, 50, 175, 100);
-            this.drawShapes(this.leftOffset);
-            window.setTimeout(() => { this.moveLeft(); }, 10);
-        }
-    }
-
-    coverLeft() {
-        if (this.count == 5) {
-            window.setTimeout(() => { this.moveLeft(); }, this.delay);
+    switchFrame() {
+        if (this.currentFrame + 1 == this.frames.length) {
             return;
         }
-        this.drawRect(150, 50, 175, 100);
-        window.setTimeout(() => { this.redrawShapes(); }, this.delay);
-        this.count++;
+        this.cnvs.removeAll();
+        this.currentFrame++;
+        this.cnvs.add(this.frames[this.currentFrame]);
+        this.cnvs.render();
+        window.setTimeout(() => {
+            this.switchFrame();
+        }, 300);
+    }
+
+    generateShapes() {
+        this.resetContext();
+        let dx3 = 0;
+        let dx4 = 0;
+        let dy1 = 0;
+
+        for (let dr = 0; dr <= 7; dr++) {
+            for (let di = 0; di <= 55; di++) {
+                let x = this.cx[di] || 0;
+                let y = this.cy[di] || 0;
+                let z = this.cz[di] || 0;
+                let ds = Math.sqrt(x * x + z * z);
+                if (x == 0) {
+                    x = 0.00001;
+                }
+                if (z == 0) {
+                    z = 0.0001;
+                }
+                let da = Math.atan(z / x);
+                if (Math.sign(x) == -1) {
+                    da = 3.141593 + da;
+                }
+                let x2 = ds * Math.cos(da + this.dpi8 * dr);
+                let z2 = ds * Math.sin(da + this.dpi8 * dr);
+                let x3 = ((x2 - (this.de * z2 / this.d)) * this.dzo / (this.d + z2)) * this.df;
+                let x4 = ((x2 + (this.de * z2 / this.d)) * this.dzo / (this.d + z2)) * this.df;
+                let y1 = (y * this.dzo / (z2 + this.d)) / 2 * this.df;
+                if (di == 0) {
+                    dx3 = x3;
+                    dx4 = x4;
+                    dy1 = y1;
+                }
+
+                let line1 = new SimpleLine({
+                    left: dx3 + 230,
+                    top: dy1 + 90,
+                    endX: x3 + 230,
+                    endY: y1 + 90
+                });
+
+                let line2 = new SimpleLine({
+                    left: dx4 + 410,
+                    top: dy1+90,
+                    endX: x4+410,
+                    endY: y1+90
+                });
+
+                this.frames[dr].add(line1);
+                this.frames[dr].add(line2);
+                dx3 = x3;
+                dx4 = x4;
+                dy1 = y1;
+            }
+        }
     }
 }
