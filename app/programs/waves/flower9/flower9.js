@@ -32,13 +32,16 @@ export class Flower9 extends BaseFlower {
 	
 	submit() {
         let ratio = 300 / this.length;
+		if (this.width > this.length * 170 / 300) {
+			ratio = ratio * 17/30;
+		}
 		this.waveLength = 1130 / this.testFreq;
         let e = this.width * ratio;
         let ya = 190 - e;
         let yd = ya;
         let xc = this.length * ratio + 10;
         let xd = xc;
-        
+
 		this.initContext();
         this.resetContext();
 		

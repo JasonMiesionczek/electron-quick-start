@@ -42,6 +42,10 @@ export class Flower12 extends BaseFlower {
 		//let cr = this.c * this.rpd;
 		let ratio = 280 / this.baseLine;
 		this.waveLength = 1130 / this.testFreq;
+
+		if (this.angleApex < 80) {
+			ratio = ratio * 2/3;
+		}
 		
 		let e = this.baseLine * Math.cos(br);
 		let d = this.baseLine * Math.sin(br);

@@ -1,49 +1,763 @@
 <template>
     <require from="app/components/eval-stats"></require>
+    <require from="app/components/eval-step"></require>
+    <require from="app/components/eval-input"></require>
     <div class="container z-depth-2">
         <!-- Step 1 -->
-        <div show.bind="currentStep == 1" class="row evalStep">
-            <div class="col-md-12 wizard-body">
-                <div class="center-block">
-                    <br/><br/><br/>
-                    <h3 style="text-align:center">Enter the Subject's Number</h3>
-                    <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
-                            <input type="number" class="form-control" value.bind="sub"/>
-                        </div>
+        <eval-step step-num.bind="1">
+            <step-content>
+                <h3 style="text-align:center">Enter the Subject's Number</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input type="number" class="form-control" value.bind="sub"/>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <button click.trigger="prev()" class="btn btn-default">Prev</button>
-                </div>
-                <div class="col-md-6">
-                    <button click.trigger="next()" class="btn btn-primary pull-right">Next</button>
-                </div>
-            </div>
-        </div>
+            </step-content>
+        </eval-step>
         <!-- Step 2 -->
-        <div show.bind="currentStep == 2" class="row evalStep">
-            <div class="col-md-12 wizard-body">
-                <div class="center-block">
-                    <eval-stats></eval-stats>
-                    <h3 style="text-align:center">Rate Subject as to Motivation</h3>
-                    <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
-                            <input type="number" class="form-control" value.bind="mot"/>
-                        </div>
+        <eval-step step-num.bind="2">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Motivation</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="mot"/>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <button click.trigger="prev()" class="btn btn-default">Prev</button>
+            </step-content>
+        </eval-step>
+        <!-- Step 3 -->
+        <eval-step step-num.bind="3">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Concepts</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="con"/>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <button click.trigger="next()" class="btn btn-primary pull-right">Next</button>
+            </step-content>
+        </eval-step>
+        <!-- Step 4 -->
+        <eval-step step-num.bind="4">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Perception</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="per"/>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 5 -->
+        <eval-step step-num.bind="5">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Structure</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="str"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 6 -->
+        <eval-step step-num.bind="6">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Quality</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="qua"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 7 -->
+        <eval-step step-num.bind="7">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Levels</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="lev"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 8 -->
+        <eval-step step-num.bind="8">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Unified</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="uni"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 9 -->
+        <eval-step step-num.bind="9">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Measure</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="mea"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 10 -->
+        <eval-step step-num.bind="10">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Reflection</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="ref"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 11 -->
+        <eval-step step-num.bind="11">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Inspirational</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="ins"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 12 -->
+        <eval-step step-num.bind="12">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Emotional</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="emo"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 13 -->
+        <eval-step step-num.bind="13">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Mental</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="men"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 14 -->
+        <eval-step step-num.bind="14">
+            <step-content>
+                <eval-stats></eval-stats>
+                <h3 style="text-align:center">Rate Subject as to Physical</h3>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+                        <input change.trigger="calcValues()" type="number" class="form-control" value.bind="phy"/>
+                    </div>
+                </div>
+            </step-content>
+        </eval-step>
+        <!-- Step 15 -->
+        <eval-step step-num.bind="15">
+            <step-content>
+                <eval-stats></eval-stats>
+            </step-content>
+        </eval-step>
+        <!-- Step 16 -->
+        <eval-step step-num.bind="16">
+            <step-content>
+                <h3>How do you rate MOTIVATION</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of CONCEPTS">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="motbycon">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate CONCEPTS of MOTIVATION</h4>
+                    <eval-input label="by virtue of PERCEPTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyper">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of STRUCTURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbystr">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of QUALITY">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyqua">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of LEVELS">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbylev">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of UNIFIED">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyuni">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbymea">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conofmotbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 17 -->
+        <eval-step step-num.bind="17">
+            <step-content>
+                <h3>How do you rate CONCEPTS</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of PERCEPTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="conbyper">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate PERCEPTION of CONCEPTS</h4>
+                    <eval-input label="by virtue of STRUCTURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbystr">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of QUALITY">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbyqua">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of LEVELS">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbylev">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of UNIFIED">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbyuni">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbymea">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perofconbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 18 -->
+        <eval-step step-num.bind="18">
+            <step-content>
+                <h3>How do you rate PERCEPTION</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of STRUCTURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="perbystr">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate STRUCTURE of PERCEPTION</h4>
+                    <eval-input label="by virtue of QUALITY">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbyqua">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of LEVELS">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbylev">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of UNIFIED">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbyuni">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbymea">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strofperbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 19 -->
+        <eval-step step-num.bind="19">
+            <step-content>
+                <h3>How do you rate STRUCTURE</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of QUALITY">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="strbyqua">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate QUALITY of STRUCTURE</h4>
+                    <eval-input label="by virtue of LEVELS">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbylev">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of UNIFIED">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbyuni">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbymea">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quaofstrbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 20 -->
+        <eval-step step-num.bind="20">
+            <step-content>
+                <h3>How do you rate QUALITY</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of LEVELS">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="quabylev">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate LEVELS of QUALITY</h4>
+                    <eval-input label="by virtue of UNIFIED">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabyuni">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabymea">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levofquabyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 21 -->
+        <eval-step step-num.bind="21">
+            <step-content>
+                <h3>How do you rate LEVELS</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of UNIFIED">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="levbyuni">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate UNIFIED of LEVELS</h4>
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unioflevbymea">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unioflevbyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unioflevbyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unioflevbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unioflevbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unioflevbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 22 -->
+        <eval-step step-num.bind="22">
+            <step-content>
+                <h3>How do you rate UNIFIED</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of MEASURE">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="unibymea">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate MEASURE of UNIFIED</h4>
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="meaofunibyref">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="meaofunibyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="meaofunibyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="meaofunibymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="meaofunibyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 23 -->
+        <eval-step step-num.bind="23">
+            <step-content>
+                <h3>How do you rate MEASURE</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of REFLECTION">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="meabyref">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate REFLECTION of MEASURE</h4>
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="refofmeabyins">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="refofmeabyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="refofmeabymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="refofmeabyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 24 -->
+        <eval-step step-num.bind="24">
+            <step-content>
+                <h3>How do you rate REFLECTION</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of INSPIRATIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="refbyins">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate INSPIRATIONAL of REFLECTION</h4>
+                    <eval-input label="by virtue of EMOIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="insofrefbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="insofrefbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="insofrefbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 25 -->
+        <eval-step step-num.bind="25">
+            <step-content>
+                <h3>How do you rate INSPIRATIONAL</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of EMOTIONAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="insbyemo">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate EMOTIONAL of INSPIRATIONAL</h4>
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="emoofinsbymen">
+                        </inputForm>
+                    </eval-input>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="emoofinsbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 26 -->
+        <eval-step step-num.bind="26">
+            <step-content>
+                <h3>How do you rate EMOTIONAL</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of MENTAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="emobymen">
+                        </inputForm>
+                    </eval-input>
+                    <h4>Please rate EMOTIONAL of INSPIRATIONAL</h4>
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="menofemobyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 27 -->
+        <eval-step step-num.bind="27">
+            <step-content>
+                <h3>How do you rate MENTAL</h3>
+                <form class="form-horizontal">
+                    <eval-input label="by virtue of PHYSICAL">
+                        <inputForm>
+                            <input type="number" class="form-control" value.bind="menbyphy">
+                        </inputForm>
+                    </eval-input>
+                </form>
+            </step-content>
+        </eval-step>
+        <!-- Step 28 -->
+        <eval-step step-num.bind="28">
+            <step-content>
+                <table class="table table-condensed table-striped" id="evalsummary">
+                    <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>Perception</th>
+                        <th>Structure</th>
+                        <th>Quality</th>
+                        <th>Levels</th>
+                        <th>Unified</th>
+                        <th>Measure</th>
+                        <th>Reflection</th>
+                        <th>Inspirational</th>
+                        <th>Emotional</th>
+                        <th>Mental</th>
+                        <th>Physical</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Concepts of Motivation</td><td>${motbycon}</td><td>${conofmotbyper}</td><td>${conofmotbystr}</td><td>${conofmotbyqua}</td>
+                        <td>${conofmotbylev}</td><td>${conofmotbyuni}</td><td>${conofmotbymea}</td><td>${conofmotbyref}</td>
+                        <td>${conofmotbyins}</td><td>${conofmotbyemo}</td><td>${conofmotbymen}</td><td>${conofmotbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Perception of Concepts</td><td>${conbyper}</td><td></td><td>${perofconbystr}</td><td>${perofconbyqua}</td>
+                        <td>${perofconbylev}</td><td>${perofconbyuni}</td><td>${perofconbymea}</td><td>${perofconbyref}</td>
+                        <td>${perofconbyins}</td><td>${perofconbyemo}</td><td>${perofconbymen}</td><td>${perofconbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Structure of Perception</td><td>${perbystr}</td><td></td><td></td><td>${strofperbyqua}</td>
+                        <td>${strofperbylev}</td><td>${strofperbyuni}</td><td>${strofperbymea}</td><td>${strofperbyref}</td>
+                        <td>${strofperbyins}</td><td>${strofperbyemo}</td><td>${strofperbymen}</td><td>${strofperbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Quality of Structure</td><td>${strbyqua}</td><td></td><td></td><td></td>
+                        <td>${quaofstrbylev}</td><td>${quaofstrbyuni}</td><td>${quaofstrbymea}</td><td>${quaofstrbyref}</td>
+                        <td>${quaofstrbyins}</td><td>${quaofstrbyemo}</td><td>${quaofstrbymen}</td><td>${quaofstrbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Levels of Quality</td><td>${quabylev}</td><td></td><td></td><td></td>
+                        <td></td><td>${levofquabyuni}</td><td>${levofquabymea}</td><td>${levofquabyref}</td>
+                        <td>${levofquabyins}</td><td>${levofquabyemo}</td><td>${levofquabymen}</td><td>${levofquabyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Unified of Levels</td><td>${levbyuni}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td>${unioflevbymea}</td><td>${unioflevbyref}</td>
+                        <td>${unioflevbyins}</td><td>${unioflevbyemo}</td><td>${unioflevbymen}</td><td>${unioflevbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Measure of Unified</td><td>${unibymea}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td>${meaofunibyref}</td>
+                        <td>${meaofunibyins}</td><td>${meaofunibyemo}</td><td>${meaofunibymen}</td><td>${meaofunibyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Reflection of Measure</td><td>${meabyref}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                        <td>${refofmeabyins}</td><td>${refofmeabyemo}</td><td>${refofmeabymen}</td><td>${refofmeabyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Inspirational of Reflection</td><td>${refbyins}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                        <td></td><td>${insofrefbyemo}</td><td>${insofrefbymen}</td><td>${insofrefbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Emotional of Inspirational</td><td>${insbyemo}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td>${emoofinsbymen}</td><td>${emoofinsbyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Mental of Emotional</td><td>${emobymen}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td>${menofemobyphy}</td>
+                    </tr>
+                    <tr>
+                        <td>Physical of Mental</td><td>${menbyphy}</td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </step-content>
+        </eval-step>
     </div>
 </template>

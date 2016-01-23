@@ -51,3 +51,7 @@ a img {
 .table-condensed {
   font-size: 11px;
 }
+
+#evalsummary tr td:first-child {
+  text-align: right;
+}

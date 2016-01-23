@@ -36,6 +36,9 @@ export class Flower15 extends BaseFlower {
 	
 	submit() {
         let ratio = 300 / this.length;
+        if (this.width / this.length * 155 / 300) {
+            ratio = ratio * 17/30;
+        }
 		this.waveLength = 1130 / this.testFreq;
         this.wla = 1130 / this.freqA;
         this.wlb = 1130 / this.freqB;
